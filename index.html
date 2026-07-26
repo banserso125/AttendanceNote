@@ -17,7 +17,7 @@
   <div class="actions">
     <button class="btn btn-blue" id="newBtn">新紀錄</button>
     <button class="btn btn-blue" id="wordBtn">匯出 Word</button>
-    <button class="btn btn-white" id="saveBtn">列印/PDF</button>
+    <button class="btn btn-white" id="saveBtn">儲存 PDF</button>
   </div>
 </header>
 <div class="wrap">
@@ -27,8 +27,8 @@
     <div class="c4"><label>時間 Time <span class="req">*</span></label><input type="time" name="time" required></div>
     <div class="c4"><label>耗時 Time Engaged</label><input type="text" name="duration" placeholder="例如 30 分鐘"></div>
     <div class="c12"><label>案件編號 Matter No. <span class="req">*</span></label><input type="text" name="matterNo" required placeholder="請輸入案件編號"></div>
-    <div class="c6"><label>參與人士 Parties</label><input type="text" name="parties" placeholder="例如：陳先生、對方律師"></div>
-    <div class="c6"><label>律師／職員 Attended By</label><input type="text" name="attendedBy" placeholder="例如：SW / ABC"></div>
+    <div class="c6"><label>參與人士 Parties <span class="req">*</span></label><input type="text" name="parties" required placeholder="例如：陳先生、對方律師"></div>
+    <div class="c6"><label>律師／職員 Attended By <span class="req">*</span></label><input type="text" name="attendedBy" required placeholder="例如：SW / ABC"></div>
   </div>
 
   <div class="section-title">紀錄類型 Type</div>
@@ -114,7 +114,7 @@ async function exportWord(){
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`Attendance Note - ${n.matterNo||'Record'} - ${n.date||''}.doc`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);toast('已匯出 Word');
 }
 
-function validate(){const n=collect();const miss=[];if(!n.date)miss.push('日期');if(!n.time)miss.push('時間');if(!n.matterNo.trim())miss.push('案件編號');if(!plainNote())miss.push('紀錄');if(miss.length){$('#error').textContent='請填寫：'+miss.join('、');toast('尚有必填資料');return null}$('#error').textContent='';return n}
+function validate(){const n=collect();const miss=[];if(!n.date)miss.push('日期');if(!n.time)miss.push('時間');if(!n.matterNo.trim())miss.push('案件編號');if(!n.parties.trim())miss.push('參與人士');if(!n.attendedBy.trim())miss.push('律師／職員');if(!plainNote())miss.push('紀錄');if(miss.length){$('#error').textContent='請填寫：'+miss.join('、');toast('尚有必填資料');return null}$('#error').textContent='';return n}
 function savePdf(){const n=validate();if(!n)return false;try{localStorage.setItem(KEY,JSON.stringify(n))}catch(e){}setDirty(false);toast('請在列印視窗選擇「另存為 PDF」');setTimeout(()=>window.print(),120);return true}
 function load(){try{const n=JSON.parse(localStorage.getItem(KEY)||'null');if(!n)return false;['date','time','duration','matterNo','parties','attendedBy'].forEach(k=>{if(form.elements[k])form.elements[k].value=n[k]||''});const types=n.types||[];form.querySelectorAll('input[name="type"]').forEach(x=>x.checked=types.includes(x.value));editor.innerHTML=n.noteHtml||'';images=Array.isArray(n.images)?n.images:[];renderImages();setDirty(false);return true}catch{return false}}
 function renderImages(){imageGrid.innerHTML='';images.forEach((src,index)=>{const card=document.createElement('div');card.className='image-card';const img=document.createElement('img');img.src=src;img.alt=`Attendance Note image ${index+1}`;const btn=document.createElement('button');btn.type='button';btn.className='remove-image';btn.title='刪除圖片';btn.textContent='×';btn.onclick=()=>{images.splice(index,1);renderImages();setDirty(true)};card.append(img,btn);imageGrid.appendChild(card)})}

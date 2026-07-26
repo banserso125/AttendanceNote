@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shum Wong & Co., Solicitors — Attendance Note</title>
+<style>
+:root{--navy:#17324d;--blue:#2f6690;--bg:#f3f5f7;--line:#d8e0e6;--muted:#64727d;--danger:#a33a3a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Microsoft JhengHei",sans-serif;color:#202b33}button,input{font:inherit}.topbar{background:var(--navy);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:5}.brand{font-weight:700}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:7px;padding:9px 14px;font-weight:700;cursor:pointer}.btn-white{background:#fff;color:var(--navy)}.btn-blue{background:#dcebf6;color:var(--navy)}.btn-danger{background:#fff0f0;color:var(--danger)}.wrap{max-width:900px;margin:22px auto;padding:0 14px}.paper{background:#fff;border-radius:12px;box-shadow:0 8px 28px rgba(23,50,77,.1);padding:34px 38px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:15px}.c4{grid-column:span 4}.c6{grid-column:span 6}.c8{grid-column:span 8}.c12{grid-column:span 12}label{display:block;font-size:12px;font-weight:700;color:#44535d;margin-bottom:6px}.req{color:var(--danger)}input{width:100%;border:1px solid var(--line);border-radius:7px;padding:10px 11px;background:#fff;outline:none}input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,102,144,.12)}.section-title{font-size:14px;font-weight:800;color:var(--navy);margin:22px 0 10px;display:flex;align-items:center;gap:8px}.section-title:after{content:"";height:1px;background:var(--line);flex:1}.check-row{display:flex;flex-wrap:wrap;gap:9px}.check-item{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#fff;font-size:13px;cursor:pointer}.check-item input{width:auto;margin:0}.editor-shell{border:1px solid var(--line);border-radius:8px;overflow:hidden}.editor-toolbar{display:flex;flex-wrap:wrap;gap:5px;padding:7px;background:#f5f7f9;border-bottom:1px solid var(--line)}.tool-btn{min-width:34px;border:1px solid #cbd5dc;background:#fff;border-radius:5px;padding:6px 9px;cursor:pointer;font-weight:700}.tool-btn:hover{background:#eaf1f6}.rich-editor{min-height:230px;padding:13px;line-height:1.6;outline:none;overflow-wrap:anywhere}.rich-editor ul,.rich-editor ol{margin:6px 0;padding-left:28px}.rich-editor ul ul{list-style-type:circle}.rich-editor ul ul ul{list-style-type:square}.rich-editor ol ol{list-style-type:lower-alpha}.rich-editor ol ol ol{list-style-type:lower-roman}.tool-select{border:1px solid #cbd5dc;background:#fff;border-radius:5px;padding:6px 8px;cursor:pointer}.rich-editor:empty:before{content:attr(data-placeholder);color:#8b969e;pointer-events:none}.rich-editor:focus{box-shadow:inset 0 0 0 2px rgba(47,102,144,.15)}.image-upload{border:1px dashed #aebbc5;border-radius:9px;padding:16px;background:#f9fbfc;text-align:center}.image-upload input{max-width:420px}.hint{font-size:12px;color:var(--muted);margin-top:7px}.image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.image-card{position:relative;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;break-inside:avoid}.image-card img{display:block;width:100%;max-height:390px;object-fit:contain;border-radius:5px;background:#f6f6f6}.remove-image{position:absolute;right:13px;top:13px;border:0;border-radius:50%;width:30px;height:30px;background:rgba(128,0,0,.82);color:#fff;font-weight:700;cursor:pointer}.error{color:var(--danger);font-size:12px;margin-top:8px;min-height:16px}.toast{position:fixed;right:20px;bottom:20px;background:#17324d;color:#fff;padding:11px 15px;border-radius:7px;opacity:0;transform:translateY(8px);transition:.2s}.toast.show{opacity:1;transform:none}
+@media(max-width:700px){.topbar{align-items:flex-start;flex-direction:column}.wrap{margin:12px auto}.paper{padding:24px 18px}.grid{display:block}.grid>div{margin-bottom:13px}.actions{width:100%}.actions .btn{flex:1}.image-grid{grid-template-columns:1fr}}
+@media print{@page{size:A4;margin:13mm}.topbar,.toast,.editor-toolbar,.image-upload,.remove-image{display:none!important}body{background:#fff}.wrap{max-width:none;margin:0;padding:0}.paper{box-shadow:none;border-radius:0;padding:0}input{border:0!important;box-shadow:none!important;padding:2px 0!important;appearance:none;background:transparent!important}.check-item{border:0;padding:2px 12px 2px 0}.check-item input:not(:checked)+span{display:none}.check-item:has(input:not(:checked)){display:none}.editor-shell{border:0}.rich-editor{min-height:auto;padding:3px 0}.rich-editor:empty{display:none}.image-grid{grid-template-columns:1fr}.image-card{border:0;padding:0;margin:8px 0}.image-card img{max-height:650px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Shum Wong & Co., Solicitors — Attendance Note</div>
+  <div class="actions">
+    <button class="btn btn-blue" id="newBtn">新紀錄</button>
+    <button class="btn btn-blue" id="wordBtn">匯出 Word</button>
+    <button class="btn btn-white" id="saveBtn">列印/PDF</button>
+  </div>
+</header>
+<div class="wrap">
+<form class="paper" id="form" autocomplete="off">
+  <div class="grid">
+    <div class="c4"><label>日期 Date <span class="req">*</span></label><input type="date" name="date" required></div>
+    <div class="c4"><label>時間 Time <span class="req">*</span></label><input type="time" name="time" required></div>
+    <div class="c4"><label>耗時 Time Engaged</label><input type="text" name="duration" placeholder="例如 30 分鐘"></div>
+    <div class="c12"><label>案件編號 Matter No. <span class="req">*</span></label><input type="text" name="matterNo" required placeholder="請輸入案件編號"></div>
+    <div class="c6"><label>參與人士 Parties</label><input type="text" name="parties" placeholder="例如：陳先生、對方律師"></div>
+    <div class="c6"><label>律師／職員 Attended By</label><input type="text" name="attendedBy" placeholder="例如：SW / ABC"></div>
+  </div>
+
+  <div class="section-title">紀錄類型 Type</div>
+  <div class="check-row" id="typeGroup">
+    <label class="check-item"><input type="checkbox" name="type" value="電話 Telcon"><span>電話 Telcon</span></label>
+    <label class="check-item"><input type="checkbox" name="type" value="會面 Conference"><span>會面 Conference</span></label>
+    <label class="check-item"><input type="checkbox" name="type" value="法院 Court"><span>法院 Court</span></label>
+    <label class="check-item"><input type="checkbox" name="type" value="視像會議 Video Conference"><span>視像會議 Video Conference</span></label>
+    <label class="check-item"><input type="checkbox" name="type" value="其他 Others"><span>其他 Others</span></label>
+  </div>
+
+  <div class="section-title">紀錄 Record <span class="req">*</span></div>
+  <div class="editor-shell">
+    <div class="editor-toolbar" aria-label="文字格式工具">
+      <select id="formatSelect" class="tool-select" title="段落格式">
+        <option value="p">Normal</option>
+        <option value="h2">Heading 1</option>
+        <option value="h3">Heading 2</option>
+        <option value="h4">Heading 3</option>
+      </select>
+      <button type="button" class="tool-btn" data-cmd="undo" title="復原">↶</button>
+      <button type="button" class="tool-btn" data-cmd="redo" title="重做">↷</button>
+      <button type="button" class="tool-btn" data-cmd="bold" title="粗體"><b>B</b></button>
+      <button type="button" class="tool-btn" data-cmd="italic" title="斜體"><i>I</i></button>
+      <button type="button" class="tool-btn" data-cmd="underline" title="底線"><u>U</u></button>
+      <button type="button" class="tool-btn" data-cmd="insertUnorderedList" title="項目符號">• List</button>
+      <button type="button" class="tool-btn" data-cmd="insertOrderedList" title="編號清單">1. List</button>
+      <button type="button" class="tool-btn" data-cmd="outdent" title="減少縮排（Shift+Tab）">⇤</button>
+      <button type="button" class="tool-btn" data-cmd="indent" title="增加縮排（Tab）">⇥</button>
+      <button type="button" class="tool-btn" data-cmd="justifyLeft" title="靠左">≡</button>
+      <button type="button" class="tool-btn" data-cmd="justifyCenter" title="置中">≡</button>
+      <button type="button" class="tool-btn" data-cmd="removeFormat" title="清除格式">清除格式</button>
+    </div>
+    <div id="noteEditor" class="rich-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="記錄討論內容、客戶指示、案件進度、律師觀察及重要事實……"></div>
+  </div>
+
+  <div class="section-title">圖片 Image</div>
+  <div class="image-upload">
+    <label for="imageInput">上載圖片 Upload Image</label>
+    <input id="imageInput" type="file" accept="image/*" multiple>
+    <div class="hint">最多 4 張；圖片會自動縮小，列印／PDF 時會一併顯示。</div>
+  </div>
+  <div id="imageGrid" class="image-grid"></div>
+
+  <div id="error" class="error"></div>
+</form>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(()=>{
+const KEY='sw_attendance_note_simple_v3';
+const form=document.getElementById('form');
+const editor=document.getElementById('noteEditor');
+const imageInput=document.getElementById('imageInput');
+const imageGrid=document.getElementById('imageGrid');
+const $=s=>document.querySelector(s);
+let dirty=false;
+let images=[];
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
+function setDirty(v){dirty=v}
+function newNote(){form.reset();editor.innerHTML='';images=[];renderImages();form.date.value=new Date().toISOString().slice(0,10);form.time.value=new Date().toTimeString().slice(0,5);$('#error').textContent='';setDirty(false)}
+function selectedTypes(){return [...form.querySelectorAll('input[name="type"]:checked')].map(x=>x.value)}
+function collect(){const f=new FormData(form);return {updatedAt:new Date().toISOString(),date:f.get('date'),time:f.get('time'),duration:f.get('duration'),matterNo:f.get('matterNo'),types:selectedTypes(),parties:f.get('parties'),attendedBy:f.get('attendedBy'),noteHtml:editor.innerHTML,images}}
+function plainNote(){return editor.innerText.replace(/\u00a0/g,' ').trim()}
+function escapeHtml(v){return String(v||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function getImageSize(src){return new Promise(resolve=>{const img=new Image();img.onload=()=>resolve({width:img.naturalWidth||img.width,height:img.naturalHeight||img.height});img.onerror=()=>resolve({width:560,height:420});img.src=src})}
+async function exportWord(){
+  const n=collect();
+  const typeHtml=n.types.length?n.types.map(t=>`<span style="margin-right:18px">☑ ${escapeHtml(t)}</span>`).join(''):'—';
+  const imageBlocks=[];
+  for(let i=0;i<n.images.length;i++){
+    const src=n.images[i];
+    const size=await getImageSize(src);
+    const maxW=560,maxH=700;
+    const ratio=Math.min(maxW/size.width,maxH/size.height,1);
+    const width=Math.max(1,Math.round(size.width*ratio));
+    const height=Math.max(1,Math.round(size.height*ratio));
+    imageBlocks.push(`<div style="margin:14px 0;page-break-inside:avoid"><div style="font-size:11pt;margin-bottom:5px">Image ${i+1}</div><table width="100%" cellspacing="0" cellpadding="0"><tr><td align="center"><img src="${src}" width="${width}" height="${height}" style="display:block;width:${width}px;height:${height}px"></td></tr></table></div>`);
+  }
+  const imageHtml=imageBlocks.join('');
+  const html=`<!DOCTYPE html><html><head><meta charset="utf-8"><style>@page{size:A4;margin:18mm}body{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:11pt;line-height:1.55;color:#222}.word-header{text-align:center;font-size:16pt;font-weight:bold;margin-bottom:18px}h2{font-size:15pt}h3{font-size:13pt}h4{font-size:11pt}.meta{width:100%;border-collapse:collapse;margin:16px 0}.meta td{border:1px solid #bbb;padding:7px;vertical-align:top}.label{font-weight:bold;width:18%}.section{font-weight:bold;border-bottom:1px solid #555;margin-top:18px;padding-bottom:4px}ul,ol{padding-left:28px}ul ul{list-style-type:circle}ul ul ul{list-style-type:square}ol ol{list-style-type:lower-alpha}ol ol ol{list-style-type:lower-roman}img{page-break-inside:avoid}</style></head><body><div class="word-header">Shum Wong &amp; Co., Solicitors — Attendance Note</div><table class="meta"><tr><td class="label">Date</td><td>${escapeHtml(n.date)}</td><td class="label">Time</td><td>${escapeHtml(n.time)}</td></tr><tr><td class="label">Time Engaged</td><td>${escapeHtml(n.duration)}</td><td class="label">Matter No.</td><td>${escapeHtml(n.matterNo)}</td></tr><tr><td class="label">Parties</td><td>${escapeHtml(n.parties)}</td><td class="label">Attended By</td><td>${escapeHtml(n.attendedBy)}</td></tr><tr><td class="label">Type</td><td colspan="3">${typeHtml}</td></tr></table><div class="section">Record</div><div>${n.noteHtml||''}</div>${imageHtml?`<div class="section">Images</div>${imageHtml}`:''}</body></html>`;
+  const blob=new Blob(['\ufeff',html],{type:'application/msword'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`Attendance Note - ${n.matterNo||'Record'} - ${n.date||''}.doc`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);toast('已匯出 Word');
+}
+
+function validate(){const n=collect();const miss=[];if(!n.date)miss.push('日期');if(!n.time)miss.push('時間');if(!n.matterNo.trim())miss.push('案件編號');if(!plainNote())miss.push('紀錄');if(miss.length){$('#error').textContent='請填寫：'+miss.join('、');toast('尚有必填資料');return null}$('#error').textContent='';return n}
+function savePdf(){const n=validate();if(!n)return false;try{localStorage.setItem(KEY,JSON.stringify(n))}catch(e){}setDirty(false);toast('請在列印視窗選擇「另存為 PDF」');setTimeout(()=>window.print(),120);return true}
+function load(){try{const n=JSON.parse(localStorage.getItem(KEY)||'null');if(!n)return false;['date','time','duration','matterNo','parties','attendedBy'].forEach(k=>{if(form.elements[k])form.elements[k].value=n[k]||''});const types=n.types||[];form.querySelectorAll('input[name="type"]').forEach(x=>x.checked=types.includes(x.value));editor.innerHTML=n.noteHtml||'';images=Array.isArray(n.images)?n.images:[];renderImages();setDirty(false);return true}catch{return false}}
+function renderImages(){imageGrid.innerHTML='';images.forEach((src,index)=>{const card=document.createElement('div');card.className='image-card';const img=document.createElement('img');img.src=src;img.alt=`Attendance Note image ${index+1}`;const btn=document.createElement('button');btn.type='button';btn.className='remove-image';btn.title='刪除圖片';btn.textContent='×';btn.onclick=()=>{images.splice(index,1);renderImages();setDirty(true)};card.append(img,btn);imageGrid.appendChild(card)})}
+function resizeImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=1600;let w=img.width,h=img.height;if(w>max||h>max){const r=Math.min(max/w,max/h);w=Math.round(w*r);h=Math.round(h*r)}const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);resolve(canvas.toDataURL('image/jpeg',.82))};img.src=reader.result};reader.readAsDataURL(file)})}
+imageInput.addEventListener('change',async()=>{const files=[...imageInput.files];if(images.length+files.length>4){toast('最多只可上載 4 張圖片');imageInput.value='';return}for(const file of files){if(!file.type.startsWith('image/'))continue;try{images.push(await resizeImage(file))}catch{toast(`未能讀取 ${file.name}`)}}renderImages();imageInput.value='';setDirty(true)});
+document.querySelectorAll('[data-cmd]').forEach(btn=>btn.addEventListener('click',()=>{editor.focus();document.execCommand(btn.dataset.cmd,false,null);setDirty(true)}));
+document.getElementById('formatSelect').addEventListener('change',e=>{editor.focus();document.execCommand('formatBlock',false,e.target.value);setDirty(true)});
+editor.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();document.execCommand(e.shiftKey?'outdent':'indent',false,null);setDirty(true)}});
+form.addEventListener('input',e=>{if(e.target!==imageInput)setDirty(true)});form.addEventListener('change',e=>{if(e.target!==imageInput)setDirty(true)});editor.addEventListener('input',()=>setDirty(true));form.addEventListener('submit',e=>{e.preventDefault();savePdf()});
+$('#saveBtn').onclick=savePdf;$('#wordBtn').onclick=async()=>{if(validate())await exportWord()};$('#newBtn').onclick=()=>{if(dirty&&!confirm('未儲存修改將會消失，繼續？'))return;newNote()};window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+if(!load())newNote();
+})();
+</script>
+</body>
+</html>
